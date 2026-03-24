@@ -104,6 +104,14 @@ header {
   z-index: 1000;
 }
 
+.header-top-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  background-color: #fefefe;
+}
+
 h2 {
   font-size: 130%;
   text-align: left;
@@ -1044,11 +1052,11 @@ test_index for latest covers from gutenberg1*/
 
 /* nav styles */
 .logo-container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100px; /* Default height for large screens */
+  position: relative;
+  height: 100px;
   display: flex;
+  align-items: center;
+  padding: 0 1em;
   z-index: 10;
 }
 
@@ -1097,13 +1105,15 @@ Remove sticky header at this breakpoint.
 }
 
 .top-header {
-  background-color: #7ebed0;
+  background-color: #fefefe;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 80px;
+  flex: 1;
 }
+/* centered the search bar*/
 
 @media (max-width: 1024px) {
 
@@ -1114,13 +1124,16 @@ Remove sticky header at this breakpoint.
 
 .search-form {
   display: flex;
-  flex-grow: 0;
+  flex-grow: 1;
   width: 500px;
+  max-width: 500px;
+  margin: 0 20px;
+  position: relative;
+  left: unset;
+  transform: none;
   margin: 0 auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
+/* added max width for the search bar so it does not strech out, and using flex so it fills out space. */
 
 @media (max-width: 500px) {
   .search-form {
@@ -1143,11 +1156,12 @@ Remove sticky header at this breakpoint.
 
 .search-input {
   padding: 9px 16px;
-  border: 2px solid #fff;
+  border: 2px solid #4C8FA8;
   border-radius: 20px 0 0 20px;
   width: 100%;
   font-size: 14px;
 }
+/* added a border around the search bar so its visible, as background of top header is also white */
 
 .search-button {
   background-color: #4C8FA8;
@@ -1173,9 +1187,10 @@ Remove sticky header at this breakpoint.
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-left: auto;
   z-index: 5;
+  flex-shrink: 0;
 }
+/* placement of the donate button using flex-shrink and avoiding overlap with small screen format */
 
 .donbtn {
   height: 25px;
@@ -1261,13 +1276,15 @@ Remove sticky header at this breakpoint.
 }
 
 .lower-header {
-  background-color: #c7dde3;
+  background-color: #fefefe;
   padding: 0 8px;
   display: flex;
   justify-content: center;
-  height: 60px;
+  height: 35px;
   align-items: center;
+  border-bottom: 3px solid #4C8FA8;
 }
+/* changed color of the lower header to white, and added blue border at the bottom */
 
 @media (max-width: 435px) {
   .lower-header {

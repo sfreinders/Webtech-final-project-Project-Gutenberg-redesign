@@ -29,13 +29,14 @@
   <input type="radio" name="toggle" id="search-toggle" style="display: none">
   <input type="radio" name="toggle" id="search-close" style="display: none">
   <input type="checkbox" id="about-toggle" style="display: none">
-  <div class="logo-container">
-    <a id="main_logo" href="https://www.gutenberg.org/" class="no-hover">
-      <img src="Free%20eBooks%20_%20Project%20Gutenberg_files/pg-logo-129x80.png" alt="Project Gutenberg" draggable="false">
-    </a>
-  </div>
+  <div class="header-top-row">
+    <div class="logo-container">
+      <a id="main_logo" href="https://www.gutenberg.org/" class="no-hover">
+        <img src="gutenberg_logo.png" alt="Project Gutenberg" draggable="false">
+      </a>
+    </div>
 
-  <div class="top-header">
+    <div class="top-header">
     <form class="search-form" method="get" action="/ebooks/search/" accept-charset="utf-8">
       <label for="search-toggle" class="search-icon-btn" aria-label="Open Search">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
@@ -49,16 +50,12 @@
     </form>
 
     <div class="donate-container">
-      <form class="donatelink" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="new">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="XKAL6BZL3YPSN">
-        <input class="donbtn" type="image" src="Free%20eBooks%20_%20Project%20Gutenberg_files/en_US.gif" name="submit" alt="Donate via PayPal">
-      </form>
       <a href="https://www.gutenberg.org/donate/" class="donate-link"> Donate </a>
     </div>
   </div>
+</div>        <!-- end header-top-row -->
 
-  <label for="about-toggle" class="dropdown-overlay"></label>
+<label for="about-toggle" class="dropdown-overlay"></label>
   <div class="lower-header">
     <div class="dropdown" tabindex="0">
       <label for="about-toggle" class="dropdown-button" aria-haspopup="true">About<span aria-hidden="true" class="dropdown-icon">▼</span></label>
