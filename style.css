@@ -17,9 +17,59 @@
       a. global
       b. search options
       c. homepage
+      d. scroll to top button (#scrollTopBtn)
 /* 5. ANIMATIONS */
 
 /* in general, classes and ids are kept together inside of these loose categories */
+
+
+/* ==========================================================================
+   SCROLL TO TOP BUTTON
+   Fixed round button in the bottom-right corner.
+   Hidden by default (opacity 0) — JS adds class .visible when
+   the user scrolls more than 300px down.
+   WHY opacity transition: smooth fade-in looks cleaner than display toggle.
+   SOURCE: Based on W3Schools scroll to top concept:
+   https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+   Extended with CSS opacity fade-in from:
+   https://www.keurigonline.nl/blog/back-to-top-button
+   window.scrollTo() documented at:
+   https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
+   ==========================================================================*/
+#scrollTopBtn {
+  position: fixed;
+  bottom: 32px;
+  right: 11px;
+  z-index: 999;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background-color: #4C8FA8;
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 43px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background-color 0.2s;
+}
+
+/* Added by main.js when scrollY > 300px */
+#scrollTopBtn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#scrollTopBtn:hover {
+  background-color: #5ba3bb;
+}
+
+#scrollTopBtn:active {
+  background-color: #7ebed0;
+  /* lighter blue when clicked */
+}
 
 /*------------------------------------*\
   BASE STYLES
@@ -34,7 +84,8 @@
   /* mostly colors used more than once */
 
   /* background colors */
-  --main-bg-color: #ffffff; /* alt: #FFFCD7; */
+  --main-bg-color: #ffffff;
+  /* alt: #FFFCD7; */
   --pre-bg-color: #f9f9f9;
   --table-bg-color: #f8f9fa;
   --th-list-logo-bg-color: #eceadf;
@@ -42,7 +93,8 @@
   --shadow-bg-color: #d9eaef;
 
   /* text colors */
-  --main-txt-color: #000000; /* alt: #A01F13; */
+  --main-txt-color: #000000;
+  /* alt: #A01F13; */
   --table-txt-color: #222;
   --input-submit-txt-color: #fff;
   --library-txt-color: #a01f13;
@@ -148,6 +200,7 @@ caption {
 dt {
   margin-bottom: 0.2em;
 }
+
 dd {
   margin-bottom: 1em;
 
@@ -220,6 +273,7 @@ h6 {
 
 /* for tablets and phones, header is not sticky */
 @media (max-width: 1024px) {
+
   h1,
   h2,
   h3,
@@ -237,9 +291,9 @@ h6 {
 }
 
 @media only screen and (max-width: 750px) {
-    body {
-      font-size: 1em;
-    }
+  body {
+    font-size: 1em;
+  }
 }
 
 
@@ -258,14 +312,11 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  box-shadow: var(--input-submit-box-shadow-dims)
-    var(--input-submit-box-shadow-color);
+  box-shadow: var(--input-submit-box-shadow-dims) var(--input-submit-box-shadow-color);
   text-shadow: 0px 0px 6px var(--input-submit-text-shadow-color);
   transition: all 0.4s ease 0s;
-  -webkit-box-shadow: var(--input-submit-box-shadow-dims)
-    var(--input-submit-box-shadow-color);
-  -moz-box-shadow: var(--input-submit-box-shadow-dims)
-    var(--input-submit-box-shadow-color);
+  -webkit-box-shadow: var(--input-submit-box-shadow-dims) var(--input-submit-box-shadow-color);
+  -moz-box-shadow: var(--input-submit-box-shadow-dims) var(--input-submit-box-shadow-color);
 }
 
 /* only hide checkbox using id start with "collapsible" (on search page) */
@@ -348,7 +399,8 @@ input[id^="collapsible"] {
 }
 
 .cell.leftcell.with-cover {
-  min-width: 105px; /* const width so that cell text is aligned */
+  min-width: 105px;
+  /* const width so that cell text is aligned */
 }
 
 
@@ -472,11 +524,11 @@ test_index for latest covers from gutenberg1*/
 }
 
 .bookshelves h2 {
-    break-after: avoid-column;
+  break-after: avoid-column;
 }
 
 .bookshelves ul {
-    break-inside: avoid;
+  break-inside: avoid;
 }
 
 /* Ensure headings stay in the same column as the list */
@@ -485,7 +537,7 @@ test_index for latest covers from gutenberg1*/
   -webkit-column-break-inside: avoid;
 }
 
-.bookshelves > ul li::before {
+.bookshelves>ul li::before {
   color: var(--library-txt-color);
   display: inline-block;
   width: 1em;
@@ -498,6 +550,7 @@ test_index for latest covers from gutenberg1*/
 
 /* highlights the relevant header if a user arrives via a "main categories" link on the homepage */
 @media only screen and (min-width: 751px) {
+
   .bookshelves h2:target,
   .bookshelves h2:focus {
     background: var(--hover-focus-color);
@@ -511,7 +564,8 @@ test_index for latest covers from gutenberg1*/
 }
 
 .bookshelves h2 {
-  scroll-margin-top: 10rem; /* keeps heading out from under fixed header */
+  scroll-margin-top: 10rem;
+  /* keeps heading out from under fixed header */
 }
 
 .book.page_content {
@@ -686,14 +740,14 @@ test_index for latest covers from gutenberg1*/
   pointer-events: none;
 }
 
-.page_content > ul li::before {
+.page_content>ul li::before {
   color: var(--library-txt-color);
   display: inline-block;
   width: 1em;
 }
 
 @media only screen and (min-width: 750px) {
-  .page_content > ul li::before {
+  .page_content>ul li::before {
     font-size: small;
   }
 }
@@ -749,7 +803,8 @@ test_index for latest covers from gutenberg1*/
 }
 
 .page_content a:link.read_html {
-  display: inline-block; /* Fallback for browsers that don't support clamp() */
+  display: inline-block;
+  /* Fallback for browsers that don't support clamp() */
   padding: 8px clamp(8px, 7vw, 50px);
   background-color: #c7dde3;
   color: black;
@@ -857,9 +912,9 @@ test_index for latest covers from gutenberg1*/
 }
 
 @media only screen and (max-width: 750px) {
-   .cover_title h5 {
-      overflow-y: scroll;
-      height: 100px;
+  .cover_title h5 {
+    overflow-y: scroll;
+    height: 100px;
   }
 }
 
@@ -1062,19 +1117,22 @@ test_index for latest covers from gutenberg1*/
 
 @media (max-width: 735px) {
   .logo-container {
-    height: 60px; /* Smaller logo for medium screens */
+    height: 60px;
+    /* Smaller logo for medium screens */
   }
 }
 
 @media (max-width: 835px) and (min-width: 735px) {
   .logo-container {
-    height: 85px; /* Smaller logo for medium screens */
+    height: 85px;
+    /* Smaller logo for medium screens */
   }
 }
 
 @media (max-width: 935px) and (min-width: 835px) {
   .logo-container {
-    height: 90px; /* Smaller logo for medium screens */
+    height: 90px;
+    /* Smaller logo for medium screens */
   }
 }
 
@@ -1084,19 +1142,22 @@ Remove sticky header at this breakpoint.
 @media (max-width: 1024px) and (min-width: 935px) {
 
   .logo-container {
-    height: 100px; /* Restore original logo height */
+    height: 100px;
+    /* Restore original logo height */
   }
 }
 
 @media (max-width: 1110px) and (min-width: 1024px) {
   .logo-container {
-    height: 60px; /* Match top header height */
+    height: 60px;
+    /* Match top header height */
   }
 }
 
 @media (max-width: 1200px) and (min-width: 1110px) {
   .logo-container {
-    height: 85px; /* Smaller logo for medium screens */
+    height: 85px;
+    /* Smaller logo for medium screens */
   }
 }
 
@@ -1113,6 +1174,7 @@ Remove sticky header at this breakpoint.
   height: 80px;
   flex: 1;
 }
+
 /* centered the search bar*/
 
 @media (max-width: 1024px) {
@@ -1133,6 +1195,7 @@ Remove sticky header at this breakpoint.
   transform: none;
   margin: 0 auto;
 }
+
 /* added max width for the search bar so it does not strech out, and using flex so it fills out space. */
 
 @media (max-width: 500px) {
@@ -1161,6 +1224,7 @@ Remove sticky header at this breakpoint.
   width: 100%;
   font-size: 14px;
 }
+
 /* added a border around the search bar so its visible, as background of top header is also white */
 
 .search-button {
@@ -1190,6 +1254,7 @@ Remove sticky header at this breakpoint.
   z-index: 5;
   flex-shrink: 0;
 }
+
 /* placement of the donate button using flex-shrink and avoiding overlap with small screen format */
 
 .donbtn {
@@ -1284,6 +1349,7 @@ Remove sticky header at this breakpoint.
   align-items: center;
   border-bottom: 3px solid #4C8FA8;
 }
+
 /* changed color of the lower header to white, and added blue border at the bottom */
 
 @media (max-width: 435px) {
@@ -1295,7 +1361,8 @@ Remove sticky header at this breakpoint.
   .lower-header .dropdown-button,
   .lower-header .main-links a {
     font-size: 15px;
-    margin: 0 10px; /* Also reduce margin slightly */
+    margin: 0 10px;
+    /* Also reduce margin slightly */
   }
 }
 
@@ -1424,7 +1491,7 @@ Remove sticky header at this breakpoint.
 }
 
 .main-links a:visited {
-    color: var(--hover-visited-color);
+  color: var(--hover-visited-color);
 }
 
 .main-links a:hover,
@@ -1462,7 +1529,8 @@ Remove sticky header at this breakpoint.
 
   .tertiary-header .tertiary-link {
     font-size: 15px;
-    margin: 0 10px; /* Also reduce margin slightly */
+    margin: 0 10px;
+    /* Also reduce margin slightly */
   }
 }
 
@@ -1470,6 +1538,7 @@ Remove sticky header at this breakpoint.
   .tertiary-header {
     display: flex;
   }
+
   .tertiary-header .tertiary-link {
     display: inline-block;
   }
@@ -1507,13 +1576,15 @@ Remove sticky header at this breakpoint.
   text-decoration: underline;
 }
 
-.search-icon-btn, .search-close-btn {
+.search-icon-btn,
+.search-close-btn {
   display: none;
 }
 
 @media (max-width: 435px) {
   .search-icon-btn {
-    padding: 3px 6px; /* Reduce padding */
+    padding: 3px 6px;
+    /* Reduce padding */
   }
 }
 
@@ -1627,15 +1698,15 @@ Remove sticky header at this breakpoint.
   width: 400px;
 }
 
-.toggle:checked + .lbl-toggle + .collapsible-content {
+.toggle:checked+.lbl-toggle+.collapsible-content {
   max-height: 500px;
 }
 
-.toggle:checked + .lbl-toggle::before {
+.toggle:checked+.lbl-toggle::before {
   transform: rotate(90deg) translateX(-3px);
 }
 
-.toggle:checked + .lbl-toggle {
+.toggle:checked+.lbl-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -1726,16 +1797,22 @@ Remove sticky header at this breakpoint.
 /* available on all pages generated by autocat3 */
 
 .page h2 {
-    color: black;
-    font-size: 1.75em; /* Example: 1em is usually default, so this is larger */
+  color: black;
+  font-size: 1.75em;
+  /* Example: 1em is usually default, so this is larger */
 }
 
 /* Spacing between main sections */
-.page .box,  /* Advanced Search section */
-.page .full-text-search, /* Full Text Search section */
-.page .full-text-search + h2 /* "Card Catalog" H2, assuming it's immediately after full-text-search */
-{
-    margin-top: 60px; /* Increased spacing above these sections */
+.page .box,
+/* Advanced Search section */
+.page .full-text-search,
+/* Full Text Search section */
+.page .full-text-search+h2
+
+/* "Card Catalog" H2, assuming it's immediately after full-text-search */
+  {
+  margin-top: 60px;
+  /* Increased spacing above these sections */
 }
 
 /* Make all tab content sections have consistent responsive behavior */
@@ -1743,31 +1820,40 @@ Remove sticky header at this breakpoint.
 
 /* Ensure Advanced Search box matches other sections' responsiveness */
 .page .box {
-    width: 100%;
-    max-width: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Advanced Search form styling */
 .page .box form .form-group input[type="text"],
 .page .box form .form-group select {
-    width: 300px; /* Consistent width for inputs and selects */
-    display: block; /* Added for centering */
-    margin: 0 auto; /* Added for centering */
+  width: 300px;
+  /* Consistent width for inputs and selects */
+  display: block;
+  /* Added for centering */
+  margin: 0 auto;
+  /* Added for centering */
 }
 
 .page .box form .form-group label {
-    width: 120px; /* Adjust if needed for the longest label */
-    text-align: right;
-    position: absolute;
-    left: calc(50% - 150px - 18px - 120px); /* 50% - half_input_width - gap - label_width */
-    top: 8px; /* Align with div padding */
+  width: 120px;
+  /* Adjust if needed for the longest label */
+  text-align: right;
+  position: absolute;
+  left: calc(50% - 150px - 18px - 120px);
+  /* 50% - half_input_width - gap - label_width */
+  top: 8px;
+  /* Align with div padding */
 }
 
 /* New style to center label/input pairs and the submit button */
 .page .box form .form-group {
-    position: relative; /* For absolute positioning of labels */
-    padding: 8px 0; /* Added for spacing */
-    margin-bottom: 8px; /* Adjusted vertical spacing */
+  position: relative;
+  /* For absolute positioning of labels */
+  padding: 8px 0;
+  /* Added for spacing */
+  margin-bottom: 8px;
+  /* Adjusted vertical spacing */
 }
 
 /* Style for the navlinks to add space below icons */
@@ -1796,15 +1882,15 @@ Remove sticky header at this breakpoint.
     align-items: center;
     margin-top: 0px;
   }
-  
+
   .page .navlink {
     margin-bottom: 5px;
   }
-  
+
   .page .navlink:last-child {
     margin-bottom: 0;
   }
-  
+
   /* Reduce container padding at smaller screen sizes */
   .page .container {
     padding: 8vh 5vw;
@@ -1812,7 +1898,8 @@ Remove sticky header at this breakpoint.
 }
 
 /* Tab styling */
-.page .tabs-container { /* Renamed from .tabs */
+.page .tabs-container {
+  /* Renamed from .tabs */
   overflow: hidden;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
@@ -1827,7 +1914,8 @@ Remove sticky header at this breakpoint.
   pointer-events: none;
 }
 
-.page .tabs-container label { /* Style labels like buttons */
+.page .tabs-container label {
+  /* Style labels like buttons */
   background-color: inherit;
   border: none;
   outline: none;
@@ -1835,8 +1923,10 @@ Remove sticky header at this breakpoint.
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
-  flex-grow: 1; /* Make labels share space equally */
-  text-align: center; /* Center text within labels */
+  flex-grow: 1;
+  /* Make labels share space equally */
+  text-align: center;
+  /* Center text within labels */
 }
 
 .page .tabs-container label:hover {
@@ -1844,7 +1934,8 @@ Remove sticky header at this breakpoint.
 }
 
 .page .tabcontent {
-  display: none; /* Hide all tab content by default */
+  display: none;
+  /* Hide all tab content by default */
   padding: 6px 12px;
   border-top: none;
   background-color: #f0f0f0;
@@ -1853,82 +1944,106 @@ Remove sticky header at this breakpoint.
 }
 
 
-.tabcontent > .box,
-.tabcontent > .full-text-search {
+.tabcontent>.box,
+.tabcontent>.full-text-search {
   margin-top: 0;
 }
 
 /* Center headings within tab content */
 .tabcontent h2 {
-    text-align: center;
+  text-align: center;
 }
 
 /* Center content in Full Text Search tab */
 .full-text-search {
-    text-align: center;
-    padding-bottom: 20px; /* Added bottom padding */
+  text-align: center;
+  padding-bottom: 20px;
+  /* Added bottom padding */
 }
 
 /* Center added Lorem Ipsum text */
-.tabcontent h2 + p {
-    text-align: center;
+.tabcontent h2+p {
+  text-align: center;
 }
 
 /* Custom styles for Full Text Search tab content */
 .full-text-search form {
-    margin-top: 10px; /* Space between forms or form and paragraph */
-    margin-bottom: 10px;
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    gap: 15px; /* Added gap for spacing between form elements */
+  margin-top: 10px;
+  /* Space between forms or form and paragraph */
+  margin-bottom: 10px;
+  display: flex;
+  /* Enable flexbox */
+  flex-direction: column;
+  /* Stack items vertically */
+  align-items: center;
+  /* Center items horizontally */
+  gap: 15px;
+  /* Added gap for spacing between form elements */
 }
 
-.full-text-search form:first-of-type { /* First form after the intro paragraph */
-      margin-top: 20px; 
-      margin-bottom: 60px; /* Further increased space between Google and DuckDuckGo forms */
+.full-text-search form:first-of-type {
+  /* First form after the intro paragraph */
+  margin-top: 20px;
+  margin-bottom: 60px;
+  /* Further increased space between Google and DuckDuckGo forms */
 }
 
 .full-text-search form img {
-    height: 48px; /* Increased icon height */
-    width: auto; /* Maintain aspect ratio */
+  height: 48px;
+  /* Increased icon height */
+  width: auto;
+  /* Maintain aspect ratio */
 }
 
 .full-text-search form input[type="text"] {
-    width: 300px; /* Match advanced search */
-    display: block; /* Make it a block element */
-    margin: 0 auto; /* Center it, removed specific bottom margin */
+  width: 300px;
+  /* Match advanced search */
+  display: block;
+  /* Make it a block element */
+  margin: 0 auto;
+  /* Center it, removed specific bottom margin */
 }
 
 .full-text-search form input[type="submit"] {
-    padding: 10px 20px; /* Match advanced search button padding */
-    font-size: 1em;
-    border: 1px solid #bbb; /* Match advanced search button border */
-    border-radius: 4px;
-    cursor: pointer;
-    display: block; /* Make it a block element */
-    margin: 0 auto; /* Center the button */
-    width: fit-content; /* Adjust width to content */
+  padding: 10px 20px;
+  /* Match advanced search button padding */
+  font-size: 1em;
+  border: 1px solid #bbb;
+  /* Match advanced search button border */
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  /* Make it a block element */
+  margin: 0 auto;
+  /* Center the button */
+  width: fit-content;
+  /* Adjust width to content */
 }
 
 .full-text-search form input[type="submit"]:hover {
-    border-color: #888;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Match advanced search button hover */
+  border-color: #888;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Match advanced search button hover */
 }
 
 /* Styling for the Advanced Search button */
 .page #submit {
   padding: 10px 20px;
-  font-size: 1em; /* Adjust as needed */
-  border: 1px solid #bbb; /* Subtle border */
-  border-radius: 4px; /* Rounded corners */
+  font-size: 1em;
+  /* Adjust as needed */
+  border: 1px solid #bbb;
+  /* Subtle border */
+  border-radius: 4px;
+  /* Rounded corners */
   cursor: pointer;
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .page #submit:hover {
-  border-color: #888; /* Darken border on hover */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow on hover */
+  border-color: #888;
+  /* Darken border on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow on hover */
 }
 
 .page .highlighted-link {
@@ -1937,37 +2052,43 @@ Remove sticky header at this breakpoint.
   display: inline-block;
   border-radius: 3px;
   text-decoration: none;
-  color: inherit; /* Use the default link color or parent color */
+  color: inherit;
+  /* Use the default link color or parent color */
 }
 
 /* Ensure last form group (submit button row) is centered */
 .page .box form .form-group:last-of-type {
-    text-align: center;
-    position: static; /* Override position:relative if it causes issues */
-    padding: 8px 0; /* Keep consistent padding */
+  text-align: center;
+  position: static;
+  /* Override position:relative if it causes issues */
+  padding: 8px 0;
+  /* Keep consistent padding */
 }
 
 /* Media query for responsive design */
 @media screen and (max-width: 1200px) {
   .page {
-    width: 95%; /* Use 95% width when screen is smaller than 1200px */
+    width: 95%;
+    /* Use 95% width when screen is smaller than 1200px */
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media screen and (max-width: 768px) {
+
   .page .box form .form-group input[type="text"],
   .page .box form .form-group select {
     width: 250px;
   }
-  
+
   .full-text-search form input[type="text"] {
     width: 250px;
   }
 }
 
 @media screen and (max-width: 600px) {
+
   .page .box form .form-group input[type="text"],
   .page .box form .form-group select {
     width: 200px;
@@ -1975,21 +2096,27 @@ Remove sticky header at this breakpoint.
 }
 
 @media screen and (max-width: 410px) {
+
   .page .box form .form-group input[type="text"],
   .page .box form .form-group select {
     width: 100%;
   }
+
   .page .tabs-container label {
-      font-size: 16px; /* Smaller font size */
-      padding: 10px 8px; /* Reduced padding */
+    font-size: 16px;
+    /* Smaller font size */
+    padding: 10px 8px;
+    /* Reduced padding */
   }
 }
 
 /* Further reduce tab button font size on extremely small screens */
 @media screen and (max-width: 310px) {
   .page .tabs-container label {
-      font-size: 12px; /* Even smaller font size */
-      padding: 8px 6px;  /* Further reduced padding */
+    font-size: 12px;
+    /* Even smaller font size */
+    padding: 8px 6px;
+    /* Further reduced padding */
   }
 }
 
@@ -1999,10 +2126,11 @@ Remove sticky header at this breakpoint.
     display: block;
     text-align: center;
     margin-bottom: 5px;
-    width: 100%; /* Ensure label spans full width for proper centering */
+    width: 100%;
+    /* Ensure label spans full width for proper centering */
   }
-  
-  
+
+
 
   /* Adjust spacing for smaller screens */
   .page .box form .form-group {
@@ -2012,17 +2140,22 @@ Remove sticky header at this breakpoint.
 
 /* New div containers */
 .icons-section {
-  max-width: 800px; /* Match menu-and-content */
-  width: 90%;       /* Match menu-and-content */
+  max-width: 800px;
+  /* Match menu-and-content */
+  width: 90%;
+  /* Match menu-and-content */
   margin: 0 auto;
   box-sizing: border-box;
   min-width: 300px;
 }
 
 .menu-and-content {
-  max-width: 800px; /* Changed from width to max-width */
-  width: 90%;       /* Added percentage width */
-  margin: 0 auto; /* Centering using margin auto */
+  max-width: 800px;
+  /* Changed from width to max-width */
+  width: 90%;
+  /* Added percentage width */
+  margin: 0 auto;
+  /* Centering using margin auto */
   box-sizing: border-box;
   min-width: 300px;
 }
@@ -2037,12 +2170,14 @@ Remove sticky header at this breakpoint.
   .search-options-body .page {
     min-width: 320px !important;
   }
+
   .page .icons-section,
   .page .menu-and-content {
     width: 95% !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
+
   .page {
     width: 300px !important;
     margin-left: auto !important;
@@ -2051,18 +2186,26 @@ Remove sticky header at this breakpoint.
 }
 
 @media (max-width: 600px) {
-  .page .container, .page .icons-section, .page .menu-and-content, .page .narrow, .page, .page {
+
+  .page .container,
+  .page .icons-section,
+  .page .menu-and-content,
+  .page .narrow,
+  .page,
+  .page {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     overflow-x: hidden !important;
   }
+
   .page {
     min-width: 0 !important;
     box-sizing: border-box !important;
     max-width: 100% !important;
   }
+
   .page .icons-section {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -2072,6 +2215,7 @@ Remove sticky header at this breakpoint.
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
+
   .page .navlinks {
     width: 100% !important;
     justify-content: center !important;
@@ -2083,8 +2227,10 @@ Remove sticky header at this breakpoint.
 
 /* Tab content */
 #advanced-search {
-  position: relative; /* Needed for absolute positioning of the info icon */
-  padding-top: 30px; /* Add some padding to avoid overlap with icon */
+  position: relative;
+  /* Needed for absolute positioning of the info icon */
+  padding-top: 30px;
+  /* Add some padding to avoid overlap with icon */
 }
 
 /* Info icon and modal CSS */
@@ -2092,10 +2238,14 @@ Remove sticky header at this breakpoint.
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 28px; /* Increased width */
-  height: 28px; /* Increased height */
-  line-height: 28px; /* Match height */
-  font-size: 20px; /* Increased font size */
+  width: 28px;
+  /* Increased width */
+  height: 28px;
+  /* Increased height */
+  line-height: 28px;
+  /* Match height */
+  font-size: 20px;
+  /* Increased font size */
   font-weight: bold;
   font-family: serif;
   color: #444;
@@ -2107,29 +2257,34 @@ Remove sticky header at this breakpoint.
   cursor: pointer;
   z-index: 10;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .info-icon-label:hover {
-  background-color: #eee; /* Slightly darker background on hover */
-  color: #000; /* Black color on hover */
+  background-color: #eee;
+  /* Slightly darker background on hover */
+  color: #000;
+  /* Black color on hover */
   border-color: #bbb;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .info-checkbox {
-  display: none; /* Hide the actual checkbox */
+  display: none;
+  /* Hide the actual checkbox */
 }
 
 .info-modal-overlay {
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 999; /* Ensure it's on top */
+  z-index: 999;
+  /* Ensure it's on top */
   justify-content: center;
   align-items: center;
 }
@@ -2145,24 +2300,31 @@ Remove sticky header at this breakpoint.
 
 .info-modal {
   background-color: white;
-  padding: 30px; /* Increased padding */
+  padding: 30px;
+  /* Increased padding */
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   width: 90%;
-  max-width: 400px; /* Limit max width */
-  max-height: 70vh; /* Limit max height */
-  overflow-y: auto; /* Add scroll if content exceeds height */
+  max-width: 400px;
+  /* Limit max width */
+  max-height: 70vh;
+  /* Limit max height */
+  overflow-y: auto;
+  /* Add scroll if content exceeds height */
   box-sizing: border-box;
-  cursor: default; /* Reset cursor for modal content */
-  z-index: 1000; /* Higher than overlay */
+  cursor: default;
+  /* Reset cursor for modal content */
+  z-index: 1000;
+  /* Higher than overlay */
 }
 
 .info-modal-close {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 1.8em; /* Larger close button */
+  font-size: 1.8em;
+  /* Larger close button */
   font-weight: bold;
   color: #888;
   cursor: pointer;
@@ -2175,8 +2337,9 @@ Remove sticky header at this breakpoint.
 }
 
 /* Show modal when checkbox is checked */
-.info-checkbox:checked ~ .info-modal-overlay {
-  display: flex; /* Use flex to center the modal */
+.info-checkbox:checked~.info-modal-overlay {
+  display: flex;
+  /* Use flex to center the modal */
 }
 
 /* Reset text alignment for paragraphs inside the modal within the advanced search tab */
@@ -2188,10 +2351,14 @@ Remove sticky header at this breakpoint.
 
 @media screen and (max-width: 440px) {
   .info-icon-label {
-    width: 22px; /* Increased from 20px */
-    height: 22px; /* Increased from 20px */
-    line-height: 21px; /* Adjusted line-height */
-    font-size: 15px; /* Increased from 13px */
+    width: 22px;
+    /* Increased from 20px */
+    height: 22px;
+    /* Increased from 20px */
+    line-height: 21px;
+    /* Adjusted line-height */
+    font-size: 15px;
+    /* Increased from 13px */
     top: 8px;
     right: 8px;
   }
@@ -2199,31 +2366,35 @@ Remove sticky header at this breakpoint.
 
 /* New media query to adjust modal position */
 @media screen and (max-width: 1025px) {
-  .info-modal { /* Target the modal itself */
-    margin-top: 50px; /* Push it down from its centered position */
+  .info-modal {
+    /* Target the modal itself */
+    margin-top: 50px;
+    /* Push it down from its centered position */
   }
 }
 
 @media screen and (max-width: 415px) {
   .info-modal {
-    margin-top: 175px; /* Further push it down for smaller screens */
+    margin-top: 175px;
+    /* Further push it down for smaller screens */
   }
 }
 
 .page #advanced-search,
 .page #full-text-search,
 .page #card-catalog {
-padding: 36px;
-border-radius: 24px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 36px;
+  border-radius: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-.page #advanced-search,
-.page #full-text-search,
-.page #card-catalog {
-  padding: 16px;
-}
+
+  .page #advanced-search,
+  .page #full-text-search,
+  .page #card-catalog {
+    padding: 16px;
+  }
 }
 
 /* Advanced Search bottom link styling */
@@ -2233,7 +2404,8 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* results table */
-.pgdbfiles hd, .pgdbfiles td {
+.pgdbfiles hd,
+.pgdbfiles td {
   padding: 5px;
 }
 
@@ -2244,17 +2416,18 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 /* ====== homepage styles and classes ====== */
 
-.homepage__body{
+.homepage__body {
   line-height: 1.6;
   color: #333;
 }
 
-.homepage i { /* didn't see any <i> tags in homepage, but if created use this. */
-  font-style: normal; 
-  font-size: 1.25rem; 
+.homepage i {
+  /* didn't see any <i> tags in homepage, but if created use this. */
+  font-style: normal;
+  font-size: 1.25rem;
 }
 
-.homepage p i + a { 
+.homepage p i+a {
   font-size: 0.85rem;
   padding: 2px 12px;
   border-radius: 4px;
@@ -2265,16 +2438,18 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #007bff;
   text-decoration: none;
   transition: color 0.15s ease-in-out,
-              transform 0.2s ease-in-out,
-              box-shadow 0.2s ease-in-out;
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
 }
 
-.homepage a:hover { color: #0056b3; }
+.homepage a:hover {
+  color: #0056b3;
+}
 
-.homepage h2, 
-.homepage h3, 
-.homepage h4, 
-.homepage h5, 
+.homepage h2,
+.homepage h3,
+.homepage h4,
+.homepage h5,
 .homepage h6 {
   font-weight: 500;
   color: #212529;
@@ -2306,7 +2481,9 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Box Shadow heading label */
-.box_shadow label { font-size: 1.35rem; }
+.box_shadow label {
+  font-size: 1.35rem;
+}
 
 /* ---------- Category Grid ---------- */
 .category-grid {
@@ -2336,7 +2513,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 1.1rem;
   text-decoration: none !important;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .category-grid a:hover {
@@ -2366,7 +2543,9 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 480px) {
-  .category-grid { grid-template-columns: 1fr; }
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Info Boxes ---------- */
@@ -2381,14 +2560,14 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #F0F0F0;
   border-radius: 10px;
   padding: 20px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s ease-in-out,
-              box-shadow 0.2s ease-in-out;
+    box-shadow 0.2s ease-in-out;
 }
 
 .info-box:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .info-box h3 {
@@ -2403,7 +2582,10 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0;
 }
 
-.info-box ul li { margin-bottom: 14px; line-height: 1.5; }
+.info-box ul li {
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
 
 .info-box .highlight-text {
   color: #212529;
@@ -2413,8 +2595,13 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 /* Info Boxes – Responsive */
 @media (max-width: 768px) {
-  .info-box-container { flex-direction: column; }
-  .info-box { margin-bottom: 15px; }
+  .info-box-container {
+    flex-direction: column;
+  }
+
+  .info-box {
+    margin-bottom: 15px;
+  }
 }
 
 /* ---------- Latest Releases & Random Selection ---------- */
@@ -2444,7 +2631,9 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
 }
 
-.lib.latest .cover_image:hover { transform: translateY(-4px); }
+.lib.latest .cover_image:hover {
+  transform: translateY(-4px);
+}
 
 .lib.latest .cover_img img {
   width: 120px;
@@ -2458,7 +2647,10 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-shadow: none;
 }
 
-.lib.latest .cover_title { margin-top: 12px; max-width: 140px; }
+.lib.latest .cover_title {
+  margin-top: 12px;
+  max-width: 140px;
+}
 
 .lib.latest .cover_title h5 {
   font-size: 0.85rem;
@@ -2749,16 +2941,16 @@ div.breadcrumbs {
   margin-top: 4em;
 }
 
-div.breadcrumbs > ul {
+div.breadcrumbs>ul {
   padding: 0;
   list-style: none outside none;
 }
 
-div.breadcrumbs > ul > li {
+div.breadcrumbs>ul>li {
   display: inline-block;
 }
 
-div.breadcrumbs > ul > li.next:before {
+div.breadcrumbs>ul>li.next:before {
   content: "›";
 }
 
@@ -2824,7 +3016,7 @@ table.helpbox {
   margin: 0 1em 1em 0;
 }
 
-table.helpbox + table {
+table.helpbox+table {
   margin-right: 0;
 }
 
@@ -2957,7 +3149,7 @@ h1 .icon {
   top: 0;
 }
 
-#screen-head > table {
+#screen-head>table {
   border-collapse: collapse;
   width: 100%;
 }
@@ -2984,8 +3176,9 @@ h1 .icon {
   text-align: center;
 }
 
-#tagline-badges > table {
-  *width: auto; /* internet explorer hack? */
+#tagline-badges>table {
+  width: auto;
+  /* internet explorer hack? */
 }
 
 #fb-badge {
@@ -3083,7 +3276,8 @@ h1 .icon {
   width: 100%;
   outline: none;
   box-shadow: none;
-  -webkit-appearance: none; /* appearance: none (?) */
+  -webkit-appearance: none;
+  /* appearance: none (?) */
 }
 
 #search #help-button {
@@ -3107,7 +3301,7 @@ h1 .icon {
   background-color: white;
 }
 
-#helpbox > div {
+#helpbox>div {
   margin: 1em 1em 0 1em;
 }
 
@@ -3141,13 +3335,13 @@ h1 .icon {
   border: 1px solid gray;
 }
 
-#no-cover > div.icon {
+#no-cover>div.icon {
   position: relative;
   top: 139px;
   left: 89px;
 }
 
-#no-cover > div.text {
+#no-cover>div.text {
   text-align: center;
 }
 
@@ -3155,12 +3349,12 @@ h1 .icon {
   margin-top: 2em;
 }
 
-#social > ul {
+#social>ul {
   padding: 0;
   list-style: none outside none;
 }
 
-#social > ul > li {
+#social>ul>li {
   display: inline-block;
 }
 
@@ -3170,8 +3364,8 @@ h1 .icon {
 
 @media screen and (max-width: 768px) {
   #qr {
-      display: none;
-    }
+    display: none;
+  }
 }
 
 #tabs-wrapper {
@@ -3202,7 +3396,9 @@ h1 .icon {
   display: none;
 }
 
-@media screen and /*(orientation: portrait) */(max-width : 1024px) {
+@media screen and
+/*(orientation: portrait) */
+(max-width : 1024px) {
   #standard {
     display: none;
   }
@@ -3219,16 +3415,16 @@ h1 .icon {
 }
 
 /* When checkbox is checked, show the text and the 'Show Less' label */
-#toggle:checked ~ .toggle-content {
+#toggle:checked~.toggle-content {
   display: inline;
 }
 
-#toggle:checked ~ .showless {
+#toggle:checked~.showless {
   display: inline;
 }
 
 /* When checkbox is checked, hide 'Read More' */
-#toggle:checked ~ .readmore {
+#toggle:checked~.readmore {
   display: none;
 }
 
@@ -3311,7 +3507,8 @@ h1 .icon {
 }
 
 #main_logo img {
-  height: 100px; /* Default height for large screens */
+  height: 100px;
+  /* Default height for large screens */
   width: auto;
   display: block;
 }
@@ -3319,21 +3516,24 @@ h1 .icon {
 @media (max-width: 735px) {
 
   #main_logo img {
-    height: 60px; /* Smaller logo for medium screens */
+    height: 60px;
+    /* Smaller logo for medium screens */
   }
 }
 
 @media (max-width: 835px) and (min-width: 735px) {
 
   #main_logo img {
-    height: 85px; /* Smaller logo for medium screens */
+    height: 85px;
+    /* Smaller logo for medium screens */
   }
 }
 
 @media (max-width: 935px) and (min-width: 835px) {
 
   #main_logo img {
-    height: 90px; /* Smaller logo for medium screens */
+    height: 90px;
+    /* Smaller logo for medium screens */
   }
 }
 
@@ -3343,72 +3543,87 @@ Remove sticky header at this breakpoint.
 @media (max-width: 1024px) and (min-width: 935px) {
 
   #main_logo img {
-    height: 100px; /* Restore original logo height */
+    height: 100px;
+    /* Restore original logo height */
   }
 }
 
 @media (max-width: 1110px) and (min-width: 1024px) {
 
   #main_logo img {
-    height: 60px; /* Match top header height */
+    height: 60px;
+    /* Match top header height */
   }
 }
 
-@media (max-width: 1200px) and (min-width: 1110px){
+@media (max-width: 1200px) and (min-width: 1110px) {
 
   #main_logo img {
-    height: 85px; /* Smaller logo for medium screens */
+    height: 85px;
+    /* Smaller logo for medium screens */
   }
 }
 
 
 
-#about-toggle:checked ~ .dropdown-overlay {
+#about-toggle:checked~.dropdown-overlay {
   display: block;
   z-index: 900;
 }
+
 /* About dropdown toggle */
-#about-toggle:checked ~ .lower-header .dropdown .dropdown-content {
+#about-toggle:checked~.lower-header .dropdown .dropdown-content {
   display: block;
 }
 
-#about-toggle:checked ~ .lower-header .dropdown .dropdown-icon {
+#about-toggle:checked~.lower-header .dropdown .dropdown-icon {
   transform: rotate(180deg);
 }
 
 @media (max-width: 500px) {
 
   /* Toggle Search Bar on Small Screens */
-  #search-toggle:checked ~ .logo-container,
-  #search-toggle:checked ~ .top-header .donate-container,
-  #search-toggle:checked ~ .top-header .search-form label.search-icon-btn {
-    display: none; /* Hide logo, donate, search icon when active */
+  #search-toggle:checked~.logo-container,
+  #search-toggle:checked~.top-header .donate-container,
+  #search-toggle:checked~.top-header .search-form label.search-icon-btn {
+    display: none;
+    /* Hide logo, donate, search icon when active */
   }
 
-  #search-toggle:checked ~ .top-header .search-close-btn {
-    display: inline-block; /* Show close button when active */
+  #search-toggle:checked~.top-header .search-close-btn {
+    display: inline-block;
+    /* Show close button when active */
   }
 
-  #search-toggle:checked ~ .top-header .search-form {
-    width: calc(100% - 120px); /* Further reduced width */
-    position: absolute; /* Keep absolute positioning */
-    left: 60px; /* Adjust position based on new padding */
-    transform: none; /* Remove centering */
-    justify-content: flex-start; /* Align items left */
-    display: flex; /* Ensure form is flex container */
+  #search-toggle:checked~.top-header .search-form {
+    width: calc(100% - 120px);
+    /* Further reduced width */
+    position: absolute;
+    /* Keep absolute positioning */
+    left: 60px;
+    /* Adjust position based on new padding */
+    transform: none;
+    /* Remove centering */
+    justify-content: flex-start;
+    /* Align items left */
+    display: flex;
+    /* Ensure form is flex container */
   }
 
-  #search-toggle:checked ~ .top-header .search-form .search-input,
-  #search-toggle:checked ~ .top-header .search-form .search-button {
-    display: block; /* Show input and button */
+  #search-toggle:checked~.top-header .search-form .search-input,
+  #search-toggle:checked~.top-header .search-form .search-button {
+    display: block;
+    /* Show input and button */
   }
 
-  #search-toggle:checked ~ .top-header .search-form .search-input {
-    flex-grow: 1; /* Allow input to grow */
+  #search-toggle:checked~.top-header .search-form .search-input {
+    flex-grow: 1;
+    /* Allow input to grow */
   }
 
-  #search-toggle:checked ~ .top-header {
-    justify-content: flex-start; /* Align the form within the header */
+  #search-toggle:checked~.top-header {
+    justify-content: flex-start;
+    /* Align the form within the header */
   }
 }
 
@@ -3416,16 +3631,16 @@ Remove sticky header at this breakpoint.
 /* SEARCH OPTION IDS */
 
 /* Style active label based on the sibling radio's state */
-#tab-advanced:checked ~ .tabs-container label[for="tab-advanced"],
-#tab-fulltext:checked ~ .tabs-container label[for="tab-fulltext"],
-#tab-categories:checked ~ .tabs-container label[for="tab-categories"] {
+#tab-advanced:checked~.tabs-container label[for="tab-advanced"],
+#tab-fulltext:checked~.tabs-container label[for="tab-fulltext"],
+#tab-categories:checked~.tabs-container label[for="tab-categories"] {
   background-color: #C7DDE3;
 }
 
 /* Show content when corresponding sibling radio is checked */
-#tab-advanced:checked ~ #advanced-search,
-#tab-fulltext:checked ~ #full-text-search,
-#tab-categories:checked ~ #card-catalog {
+#tab-advanced:checked~#advanced-search,
+#tab-fulltext:checked~#full-text-search,
+#tab-categories:checked~#card-catalog {
   display: block;
 }
 
@@ -3433,14 +3648,14 @@ Remove sticky header at this breakpoint.
 #full-text-search input[type='text'],
 #advanced-search .box input[type='text'],
 #advanced-search .box select {
-height: 36px;
-padding: 0 10px;
-border-radius: 4px;
-border: 1px solid #ccc;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 #advanced-search .box form .form-group label {
-top: 14px;
+  top: 14px;
 }
 
 /* ====== HOMEPAGE IDS ====== */
@@ -3453,10 +3668,14 @@ top: 14px;
 
 /* Slogan responsive line-height */
 @media (max-width: 960px) {
-  #slogan { line-height: 1.2; }
+  #slogan {
+    line-height: 1.2;
+  }
 }
 
-#sub-slogan { font-size: 18px; }
+#sub-slogan {
+  font-size: 18px;
+}
 
 
 
@@ -3532,10 +3751,12 @@ top: 14px;
 }
 
 @keyframes flash {
+
   0%,
   100% {
     background: var(--hover-focus-color);
   }
+
   50% {
     background: #f0f0f0;
   }
