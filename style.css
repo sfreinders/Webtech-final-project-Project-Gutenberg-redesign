@@ -459,6 +459,19 @@ input[id^="collapsible"] {
 
 /* LIBRARY */
 
+.library {
+  margin-left: -5vw;
+  margin-right: -5vw;
+}
+
+.library .box_shadow {
+  margin: 0;
+  padding: 1em 5vw;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
 .library .latest {
   white-space: nowrap;
   width: 100%;
@@ -910,8 +923,9 @@ test_index for latest covers from gutenberg1*/
   height: 5em;
   text-decoration: none;
   text-align: center;
-  width: 100px;
+  width: 150px;
   background-color: var(--shadow-bg-color);
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 750px) {
@@ -927,16 +941,16 @@ test_index for latest covers from gutenberg1*/
 }
 
 .cover_image img {
-  height: 150px;
-  width: 100px;
+  height: 200px;
+  width: 140px;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
 
 .cover_image {
-  height: 250px;
-  width: 100px;
+  height: 320px;
+  width: 140px;
 }
 
 /*Old Cover image rules orginally declated in CoverPages.py on autocat3. Keep them so it doesn't break anything if it is used somewhere else on autocat3.*/
@@ -2462,8 +2476,8 @@ Remove sticky header at this breakpoint.
 
 .box_shadow {
   border: none;
-  border-radius: 10px;
-  display: inline-block;
+  border-radius: 0;
+  display: block;
   min-width: 100%;
 }
 
@@ -2639,8 +2653,8 @@ Remove sticky header at this breakpoint.
 }
 
 .lib.latest .cover_img img {
-  width: 120px;
-  height: 180px;
+  width: 160px;
+  height: 230px;
   border-radius: 6px;
   box-shadow: none;
   transition: all 0.2s ease-in-out;
@@ -2656,11 +2670,11 @@ Remove sticky header at this breakpoint.
 }
 
 .lib.latest .cover_title h5 {
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.3;
   margin: 0;
   color: #495057;
-  width: 120px;
+  width: 160px;
 }
 
 
