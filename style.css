@@ -154,7 +154,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #fefefe;
+  background-color: var(--main-bg-color);
 }
 
 .header-top-row {
@@ -162,7 +162,7 @@ header {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  background-color: #fefefe;
+  background-color: var(--main-bg-color);
 }
 
 h2 {
@@ -700,7 +700,7 @@ test_index for latest covers from gutenberg1*/
   font-weight: bold;
   width: 100%;
   line-height: 1em;
-  color: black;
+  color: var(--main-txt-color);
   margin-top: 3.5em;
   word-break: break-word;
   margin-bottom: 1em;
@@ -725,7 +725,7 @@ test_index for latest covers from gutenberg1*/
   margin-top: 15px;
   margin-bottom: 15px;
   width: 100%;
-  color: black;
+  color: var(--main-txt-color);
 }
 
 @media only screen and (max-width: 750px) {
@@ -900,6 +900,19 @@ test_index for latest covers from gutenberg1*/
 
 .footer img {
   vertical-align: baseline;
+}
+
+body.dark-mode .footer {
+  background-color: #8f8f8f;
+  color: #e0e0e0;
+}
+
+body.dark-mode .page_content a:link {
+  color: #9ecfff;
+}
+
+body.dark-mode .page_content a:visited {
+  color: #b4c9ff;
 }
 
 /* COVER */
@@ -3680,6 +3693,7 @@ Remove sticky header at this breakpoint.
 
 #sub-slogan {
   font-size: 18px;
+  color: var(--library-txt-color);
 }
 
 
@@ -3765,4 +3779,140 @@ Remove sticky header at this breakpoint.
   50% {
     background: #f0f0f0;
   }
+}
+
+
+/* ==========================================================================
+   DARK MODE TOGGLE BUTTON
+   ==========================================================================*/
+
+#darkModeToggle {
+  background-color: transparent;
+  border: 2px solid #4C8FA8;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 1.2em;
+}
+
+#darkModeToggle:hover {
+  background-color: rgba(76, 143, 168, 0.1);
+}
+
+#darkModeToggle:active {
+  background-color: rgba(76, 143, 168, 0.2);
+}
+
+@media (max-width: 500px) {
+  #darkModeToggle {
+    margin-left: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1em;
+  }
+}
+
+/* ==========================================================================
+   DARK MODE STYLES
+   ==========================================================================*/
+
+body.dark-mode {
+  --main-bg-color: #1a1a1a;
+  --pre-bg-color: #2a2a2a;
+  --table-bg-color: #2a2a2a;
+  --th-list-logo-bg-color: #3a3a3a;
+  --input-submit-bg-color: #4C8FA8;
+  --shadow-bg-color: #2a3a3f;
+  
+  --main-txt-color: #e0e0e0;
+  --table-txt-color: #d0d0d0;
+  --input-submit-txt-color: #ffffff;
+  --library-txt-color: #ff6b6b;
+  
+  --pre-border-color: #4a7fab;
+  --table-border-color: #555555;
+  --table-alt-border-color: #444444;
+  --th-list-logo-border-color: #555555;
+  --menu-search-border-color: #444444;
+  
+  --hover-visited-color: #c9a663;
+  --hover-focus-color: #2a3f45;
+  --input-submit-text-shadow-color: rgba(255, 255, 255, 0.8);
+  --input-submit-box-shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+
+body.dark-mode .footer {
+  border-top-color: #444444;
+}
+
+body.dark-mode #scrollTopBtn {
+  background-color: #4C8FA8;
+  color: #ffffff;
+}
+
+body.dark-mode #scrollTopBtn:hover {
+  background-color: #5ba3bb;
+}
+
+body.dark-mode #scrollTopBtn:active {
+  background-color: #7ebed0;
+}
+
+body.dark-mode .donate-link {
+  background-color: #4C8FA8;
+  color: #ffffff !important;
+}
+
+body.dark-mode .donate-link:hover {
+  background-color: #5ba3bb;
+}
+
+body.dark-mode .search-button {
+  background-color: #4C8FA8;
+  color: #ffffff;
+}
+
+body.dark-mode .search-button:hover {
+  background-color: #5ba3bb;
+}
+
+body.dark-mode #darkModeToggle {
+  border-color: #5ba3bb;
+  color: #e0e0e0;
+}
+
+body.dark-mode #darkModeToggle:hover {
+  background-color: rgba(91, 163, 187, 0.2);
+}
+
+body.dark-mode .cell.content:hover {
+  color: #ffa64d;
+}
+
+/* Slight image dimming */
+body.dark-mode img {
+  opacity: 0.9;
+}
+
+body.dark-mode img:hover {
+  opacity: 1;
+}
+
+body.dark-mode header,
+body.dark-mode .header-top-row,
+body.dark-mode .top-header,
+body.dark-mode .lower-header,
+body.dark-mode .tertiary-header {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .dropdown-button {
+  color: #ffffff;
 }

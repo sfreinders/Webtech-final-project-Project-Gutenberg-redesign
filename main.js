@@ -131,10 +131,60 @@ function initBookSliders() {
     });
   });
 }
-
-
-
+ 
+ 
+ 
 /* --------------------------------------------------------------------------
+   4. DARK MODE TOGGLE
+   Toggles dark mode on/off when the user clicks the dark mode button.
+   Saves the preference in localStorage so it persists across page visits.
+   Automatically loads the user's saved preference when the page loads.
+   Updates the button icon to show either a sun (☀️) or moon (🌙).
+   WHY: Reduces eye strain in low-light environments and provides user
+   preference customization (accessibility best practice).
+ 
+   SOURCES:
+   - localStorage API for persistent storage:
+     https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+   - classList.toggle() to add/remove the dark-mode class:
+     https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+   - textContent to change button icon:
+     https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+-------------------------------------------------------------------------- */
+function initDarkModeToggle() {
+  var btn = document.getElementById("darkModeToggle");
+  if (!btn) return;
+ 
+  /* Check if user has a saved preference in localStorage */
+  var savedMode = localStorage.getItem("darkMode");
+  
+  /* If user previously enabled dark mode, apply it immediately */
+  if (savedMode === "enabled") {
+    document.body.classList.add("dark-mode");
+    btn.textContent = "☀️"; /* Show sun icon when in dark mode */
+  } else {
+    btn.textContent = "🌙"; /* Show moon icon when in light mode */
+  }
+ 
+  /* Toggle dark mode when button is clicked */
+  btn.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    
+    /* Update the button icon based on current mode */
+    if (document.body.classList.contains("dark-mode")) {
+      btn.textContent = "☀️"; /* Sun icon in dark mode (click to go light) */
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      btn.textContent = "🌙"; /* Moon icon in light mode (click to go dark) */
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+}
+ 
+ 
+ 
+/* 
+--------------------------------------------------------------------------
    Initialize all functions after the full HTML document has loaded.
    DOMContentLoaded ensures all elements exist in the DOM before JS runs.
    SOURCE:
@@ -144,4 +194,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setActiveNavLink();
   initScrollToTop();
   initBookSliders();
+  initDarkModeToggle();
 });
