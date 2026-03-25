@@ -646,11 +646,12 @@ test_index for latest covers from gutenberg1*/
 }
 
 .page_content {
-  margin-top: 160px;
+  margin-top: 190px;
   padding-bottom: 60px;
   padding-left: 5vw;
   padding-right: 5vw;
 }
+/* added extra margin top so that header looks fine on other pages */
 
 /*
 * Remove sticky header at this breakpoint
