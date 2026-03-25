@@ -981,20 +981,18 @@ test_index for latest covers from gutenberg1*/
   color: #777;
 }
 
-.footer a:link,
-.footer a:visited,
-.footer a:hover,
-.footer a:active {
-  color: #006479;
+.footer-links a:link,
+.footer-links a:visited {
+  color: #555;
 }
 
-.footer ul li {
-  display: inline-block;
-  padding: 10px;
+.footer-social a:link,
+.footer-social a:visited {
+  color: #555;
 }
 
 .footer img {
-  vertical-align: baseline;
+  vertical-align: middle;
 }
 
 /* COVER */
