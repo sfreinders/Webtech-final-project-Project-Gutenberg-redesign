@@ -425,6 +425,46 @@ input[id^="collapsible"] {
   user-select: none;
 }
 
+/* about page */
+.mission-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #9a772b;
+  margin: 60px auto;
+  max-width: 800px;
+  line-height: 1.4;
+}
+
+.founder-section {
+  display: block;
+  margin: 30px 0;
+}
+
+.founder-photo {
+  width: 350px;
+  max-width: 350px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+.founder-figure {
+  float: right;
+  margin: -80px 0 20px 30px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 8px;
+  font-style: italic;
+  max-width: 350px;
+}
+
 /* CONTAINER */
 
 .container {
@@ -599,7 +639,7 @@ test_index for latest covers from gutenberg1*/
 
 .book .cover img {
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
+  max-height: 400px;
   max-width: 150px;
   vertical-align: top;
 }
@@ -3241,6 +3281,9 @@ h1 .icon {
 /*------------------------------------*\
   CSS ID STYLES
 \*------------------------------------*/
+
+
+
 
 #print-head {
   position: absolute;
