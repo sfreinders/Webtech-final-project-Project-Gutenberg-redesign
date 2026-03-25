@@ -3667,7 +3667,9 @@ Remove sticky header at this breakpoint.
 #slogan {
   color: #9a772b;
   font-size: 32px;
+  text-align: center;
 }
+/* centered the slogan */
 
 /* Slogan responsive line-height */
 @media (max-width: 960px) {
