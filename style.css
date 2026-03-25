@@ -36,6 +36,8 @@
    window.scrollTo() documented at:
    https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
    ==========================================================================*/
+
+
 #scrollTopBtn {
   position: fixed;
   bottom: 32px;
@@ -2471,6 +2473,16 @@ Remove sticky header at this breakpoint.
   font-weight: 500;
   color: #212529;
 }
+.homepage .section-heading {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+
+}
+/* prevents the h2 class used for text from being overriden */
 
 /* ---------- 'Find more' link ---------- */
 
@@ -3694,6 +3706,15 @@ Remove sticky header at this breakpoint.
 
 #sub-slogan {
   font-size: 18px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
 }
 
 
