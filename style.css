@@ -250,7 +250,57 @@ th {
 }
 
 
+/* Downloads Table */
+#books-downloads-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
 
+#books-downloads-table caption {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+  text-align: left;
+}
+
+#books-downloads-table th, 
+#books-downloads-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #000000;
+}
+
+/* Headers: Making the time periods stand out */
+#books-downloads-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: left;
+  width: 40%;
+}
+
+/* Zebra striping for better readability */
+#books-downloads-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Hover effect to highlight the current row */
+#books-downloads-table tr:hover {
+  background-color: #f1f5ff;
+  transition: background-color 0.2s ease;
+}
+
+/* Alignment for the numbers */
+.right {
+  text-align: right;
+  font-weight: bold;
+}
 
 /* ====== @media (for mobile, etc.) ====== */
 
