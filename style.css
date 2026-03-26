@@ -432,10 +432,11 @@ input[id^="collapsible"] {
   font-weight: bold;
 }
 
+/* linked icons to the gutenberg url */
 .icon {
   display: inline-block;
   vertical-align: middle;
-  background-image: url(/pics/sprite.png?1591823171);
+  background-image: url(https://www.gutenberg.org/pics/sprite.png);
   width: 23px;
   height: 23px;
 }
@@ -3516,7 +3517,7 @@ h1 .icon {
 }
 
 #cover-social-wrapper {
-  width: 200px;
+  width: 300px;
   float: left;
 }
 
@@ -3530,13 +3531,16 @@ h1 .icon {
     width: 100%;
   }
 }
-
+/* making the book image on the individual book page wider */
 #cover {
-  width: 200px;
+  width: 300px;
 }
 
 #cover img {
+  width: 100%;
+  height: auto;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
 }
 
 #no-cover {
@@ -3577,9 +3581,9 @@ h1 .icon {
     display: none;
   }
 }
-
+/* also widened tabs wrapper so the book sits nicely next to the table */
 #tabs-wrapper {
-  margin: 0 1em 0 200px;
+  margin: 0 1em 0 320px;
 }
 
 #tabs {
@@ -3657,31 +3661,52 @@ h1 .icon {
 /* Custom styles for tables and headers */
 #download_options_table,
 #about_book_table {
-  background-color: white;
   border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
   border: none;
-}
-
-#download_options_table {
-  margin-top: 0px;
 }
 
 #download_options_table th,
 #download_options_table td,
 #about_book_table th,
 #about_book_table td {
-  border-color: #d6d3d1;
-  padding: 8px 6px;
+  padding: 12px 15px;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 #download_options_table th,
 #about_book_table th {
-  background-color: #e7e5e4;
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-align: left;
+  color: #444;
 }
 
-#download_options_table td,
-#about_book_table td {
-  background-color: #fafafa;
+#download_options_table td:first-child,
+#about_book_table td:first-child {
+  width: 30px;
+  text-align: center;
+}
+
+#about_book_table th {
+  width: 160px;
+}
+
+#download_options_table tr:hover td,
+#about_book_table tr:hover td {
+  background-color: #f5f9fc;
+  transition: background-color 0.2s ease;
+}
+
+#download_options_table tr:last-child td,
+#about_book_table tr:last-child td {
+  border-bottom: none;
 }
 
 /* Headers styling */
