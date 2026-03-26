@@ -1,6 +1,6 @@
 # Webtech-final-project-Project-Gutenberg-redesign
 
-**Documentation:**
+# **Documentation:**
 Da Silva Conde Victoria, Nathanael
 Reinders, Sofie
 Koster, Mischa
@@ -26,17 +26,18 @@ The individual book page was also modernized, although we aimed to keep the orig
 Lastly, the navbar navigation was significantly improved. The user can now see what page they are on, as the navbar will highlight said page, further improving the user experience and website functionality.
 
 
-**Timeline:**
+# **Timeline:**
 
-23 March:
+**23 March:**
 Top 100 changed to top 10 -Nathanael
 Changed Hrefs between pages -Nathanael
 
-24 March:
+**24 March:**
 Logo created and changed, color is now  #fefefe - Mischa
 HTML change: paypal donation button removed -Mischa
 HTML change: on main landing page, header and logo wrapped together to enable centering -Mischa
-25 March:
+
+**25 March:**
 Implementation of main.js, book slider and “back to top” arrow button and corrected it on every html and css - Sofie
 Moved html around on main landing page to change the order of top to bottom, text centered, implemented “what do you want to read” for increased user ease. Social media section simplified - Mischa
 Redesigned footer across all pages, removed 2 infoboxes (from html also). -Mischa
@@ -46,10 +47,10 @@ Changed more hrefs -Nathanael
 Attempt at making dark mode -Nathanael
 Highlighted the current page user is on -Nathanael
 
-26 March:
-Redesigned main categories page: replaced nested "<ul>" list with CSS grid card layout for a better scannability- Sofie
-Redesigned reading list page: replaced nested "<ul>" bookshelves with flexbog tag -sofie
-Redesigned collections section on reading list page: replaced separate "<ul>" block with flexbox pill layout - Sofie
+**26 March:**
+Redesigned main categories page: replaced nested &lt;/ul&gt; list with CSS grid card layout for a better scannability- Sofie
+Redesigned reading list page: replaced nested &lt;/ul&gt; bookshelves with flexbog tag -sofie
+Redesigned collections section on reading list page: replaced separate &lt;/ul&gt; block with flexbox pill layout - Sofie
 Changed the hrefs to make sure the active nav link works on every page and make it visible where you are in the navbar.  -sofie
 https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout
 Converted the bookshelves layout from columns to a Javascript masonry solution, this makes sure the alphabetical order is correct -sofie
