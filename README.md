@@ -47,9 +47,9 @@ Attempt at making dark mode -Nathanael
 Highlighted the current page user is on -Nathanael
 
 26 March:
-Redesigned main categories page: replaced nested <ul> list with CSS grid card layout for a better scannability- Sofie
-Redesigned reading list page: replaced nested <ul> bookshelves with flexbog tag -sofie
-Redesigned collections section on reading list page: replaced separate <ul> block with flexbox pill layout - Sofie
+Redesigned main categories page: replaced nested "<ul>" list with CSS grid card layout for a better scannability- Sofie
+Redesigned reading list page: replaced nested "<ul>" bookshelves with flexbog tag -sofie
+Redesigned collections section on reading list page: replaced separate "<ul>" block with flexbox pill layout - Sofie
 Changed the hrefs to make sure the active nav link works on every page and make it visible where you are in the navbar.  -sofie
 https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout
 Converted the bookshelves layout from columns to a Javascript masonry solution, this makes sure the alphabetical order is correct -sofie
