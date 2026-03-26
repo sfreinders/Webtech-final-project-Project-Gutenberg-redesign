@@ -3934,11 +3934,9 @@ Remove sticky header at this breakpoint.
   }
 }
 
-/* ---------- Bookshelves Grid (main_categories pagina) ---------- */
+/* ---------- Bookshelves Grid (main_categories + reading list page) ---------- */
 .bookshelves {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 30px;
+  position: relative;
   margin: 40px 0 60px 0;
 }
 
@@ -3978,6 +3976,7 @@ Remove sticky header at this breakpoint.
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s ease;
+  word-break: break-word;
 }
 
 .book-list ul li a:hover {
@@ -3986,6 +3985,12 @@ Remove sticky header at this breakpoint.
 }
 
 @media (max-width: 768px) {
+  .bookshelves {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
   .bookshelves {
     grid-template-columns: 1fr;
   }

@@ -131,6 +131,31 @@ function initBookSliders() {
     });
   });
 }
+// Masonry layout for bookshelves
+function masonryLayout() {
+  const grid = document.querySelector('.bookshelves');
+  if (!grid) return;
+
+  const items = Array.from(grid.querySelectorAll('.book-list'));
+  const columnCount = Math.round(grid.offsetWidth / 290);
+  const columns = Array(columnCount).fill(0);
+
+  items.forEach(item => {
+    item.style.position = 'absolute';
+    const shortestCol = columns.indexOf(Math.min(...columns));
+    const x = shortestCol * (grid.offsetWidth / columnCount);
+    const y = columns[shortestCol];
+    item.style.left = x + 'px';
+    item.style.top = y + 'px';
+    item.style.width = (grid.offsetWidth / columnCount - 30) + 'px';
+    columns[shortestCol] += item.offsetHeight + 30;
+  });
+
+  grid.style.height = Math.max(...columns) + 'px';
+}
+
+window.addEventListener('load', masonryLayout);
+window.addEventListener('resize', masonryLayout);
 
 
 
@@ -144,4 +169,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setActiveNavLink();
   initScrollToTop();
   initBookSliders();
+  initmasonryLayout();
 });
