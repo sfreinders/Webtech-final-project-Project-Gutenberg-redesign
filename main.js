@@ -26,7 +26,7 @@
      https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
 -------------------------------------------------------------------------- */
 function setActiveNavLink() {
-  var currentPage = window.location.pathname.split("/").pop() || "index.html";
+  var currentPage = decodeURIComponent(window.location.pathname.split("/").pop()) || "index.html";
   var navLinks = document.querySelectorAll(".main-links a, .tertiary-link");
 
   navLinks.forEach(function (link) {

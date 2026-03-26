@@ -447,9 +447,10 @@ input[id^="collapsible"] {
   max-width: 350px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
 }
+
 .founder-figure {
   float: right;
   margin: -80px 0 20px 30px;
@@ -940,6 +941,7 @@ test_index for latest covers from gutenberg1*/
   width: 100%;
   background-color: #f0f0f0;
 }
+
 .footer-content {
   display: flex;
   justify-content: space-around;
@@ -956,7 +958,7 @@ test_index for latest covers from gutenberg1*/
 
 .footer-heading {
   font-size: 1rem;
-  
+
   color: #333;
   margin-bottom: 15px;
   letter-spacing: 0.05em;
@@ -1627,13 +1629,19 @@ Remove sticky header at this breakpoint.
   flex-shrink: 0;
 }
 
-.main-links a:visited {
-  color: var(--hover-visited-color);
-}
-
 .main-links a:hover,
 .dropdown-button:hover {
   text-decoration: underline;
+}
+
+.main-links a.active {
+  font-weight: 600;
+  border-bottom: 2px solid #4C8FA8;
+  color: #4C8FA8 !important;
+}
+
+.main-links a:visited {
+  color: inherit;
 }
 
 .tertiary-header {
@@ -2591,6 +2599,7 @@ Remove sticky header at this breakpoint.
   font-weight: 500;
   color: #212529;
 }
+
 .homepage .section-heading {
   text-align: center;
   margin-top: 60px;
@@ -2600,6 +2609,7 @@ Remove sticky header at this breakpoint.
   color: #333;
 
 }
+
 /* prevents the h2 class used for text from being overriden */
 
 /* ---------- 'Find more' link ---------- */
@@ -3816,6 +3826,7 @@ Remove sticky header at this breakpoint.
   font-size: 32px;
   text-align: center;
 }
+
 /* centered the slogan */
 
 /* Slogan responsive line-height */
@@ -3921,4 +3932,87 @@ Remove sticky header at this breakpoint.
   50% {
     background: #f0f0f0;
   }
+}
+
+/* ---------- Bookshelves Grid (main_categories pagina) ---------- */
+.bookshelves {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  margin: 40px 0 60px 0;
+}
+
+.book-list {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-list:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.book-list h2 {
+  font-size: 1.1rem;
+  margin: 0 0 16px 0;
+  color: #212529;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #C7DDE3;
+}
+
+.book-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book-list ul li {
+  margin-bottom: 8px;
+}
+
+.book-list ul li a {
+  color: #495057;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.book-list ul li a:hover {
+  color: #4C8FA8;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .bookshelves {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Collections Grid (reading list pagina) ---------- */
+.collections-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 40px 0;
+}
+
+.collections-grid a {
+  padding: 10px 18px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  color: #495057;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.collections-grid a:hover {
+  background: #4C8FA8;
+  color: white;
+  border-color: #4C8FA8;
+  transform: translateY(-2px);
 }
