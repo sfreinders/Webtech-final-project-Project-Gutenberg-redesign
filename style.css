@@ -4097,6 +4097,9 @@ Remove sticky header at this breakpoint.
   transform: translateY(-2px);
 }
 
+
+/* ---------- Updated navlinks for updated search page and others ---------- */
+
 .navlinks {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -4104,7 +4107,6 @@ Remove sticky header at this breakpoint.
   list-style: none;
   padding: 0;
 }
-
 
 .navlink a {
   display: flex;
