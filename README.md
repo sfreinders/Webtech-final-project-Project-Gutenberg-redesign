@@ -1,9 +1,14 @@
 # Webtech-final-project-Project-Gutenberg-redesign
 
 # **Documentation:**
+Made by:
+
 Da Silva Conde Victoria, Nathanael
+
 Reinders, Sofie
+
 Koster, Mischa
+
 
 It was important for us to maintain the original iconic feel of the Project Gutenberg website, which meant a roughly similar color palette, together with a similar but modernized lay-out.
 We felt that the original website primarily felt old trough it’s outdated icons and logo’s, and secondly, we found several user issues with the general layout of the page. 
