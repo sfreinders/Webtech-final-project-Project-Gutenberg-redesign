@@ -99,7 +99,7 @@
   /* alt: #A01F13; */
   --table-txt-color: #222;
   --input-submit-txt-color: #fff;
-  --library-txt-color: #a01f13;
+  --library-txt-color: #4c8fa8;
 
 
   /* border colors */
@@ -4020,4 +4020,46 @@ Remove sticky header at this breakpoint.
   color: white;
   border-color: #4C8FA8;
   transform: translateY(-2px);
+}
+
+.navlinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+
+.navlink a {
+  display: flex;
+  align-items: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--main-bg-color);
+  transition: all 0.3s ease;
+}
+
+.navlink a:hover {
+  border-color: #4C8FA8;
+  transform: translateY(-4px);
+}
+
+.tabcontent {
+  background: var(--main-bg-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tabs-container label {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
 }
