@@ -156,9 +156,12 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #fefefe;
+  background-color: #fefefe; /* added to prevent header becoming transparent when scrolling */
 }
 
+/* New wrapper div added to place logo and search bar side by side in a row.
+   Originally logo and top header were separate in the header.
+   Wrapping them allows the logo and search to share one row, nav links underneath. */
 .header-top-row {
   display: flex;
   flex-direction: row;
@@ -250,7 +253,7 @@ th {
 }
 
 
-/* Downloads Table */
+/* Downloads Table, used on the Top 10 / Frequently Downloaded page */
 #books-downloads-table {
   border-collapse: collapse;
   width: 100%;
@@ -551,7 +554,7 @@ figcaption {
   }
 }
 
-/* LIBRARY */
+/* LIBRARY, extended the library section to full width, negative margins pull box to egdes of screen */
 
 .library {
   margin-left: -5vw;
@@ -980,8 +983,10 @@ test_index for latest covers from gutenberg1*/
   font-weight: bold;
 }
 
-/* FOOTER */
+/* FOOTER, now uses a multi column layout divided into four sections:
+   Project Gutenberg links, Legal links, Help links, and Social Media. */
 
+/* Main footer wrapper,light grey background, full width */
 .footer {
   position: inherit;
   left: 0;
@@ -993,6 +998,7 @@ test_index for latest covers from gutenberg1*/
   background-color: #f0f0f0;
 }
 
+
 .footer-content {
   display: flex;
   justify-content: space-around;
@@ -1003,10 +1009,11 @@ test_index for latest covers from gutenberg1*/
 }
 
 .footer-column {
-  flex: 1;
-  min-width: 150px;
+  flex: 1; /*makes all columns equal width*/
+  min-width: 150px; /*prevents from becoming too narow*/
 }
 
+/*the 4 headings, legal help etc */
 .footer-heading {
   font-size: 1rem;
 
@@ -1014,7 +1021,7 @@ test_index for latest covers from gutenberg1*/
   margin-bottom: 15px;
   letter-spacing: 0.05em;
 }
-
+/*list of links, inside column, using style none makes sure there are no bullet points */
 .footer-links {
   list-style: none;
   padding: 0;
@@ -1022,10 +1029,10 @@ test_index for latest covers from gutenberg1*/
 }
 
 .footer-links li {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /*spacing between each link*/
 }
 
-.footer-links a {
+.footer-links a { /*individual styling*/
   color: #555;
   text-decoration: none;
   font-size: 0.9rem;
@@ -1042,7 +1049,7 @@ test_index for latest covers from gutenberg1*/
   margin: 0;
 }
 
-.footer-social li {
+.footer-social li { /*spacing between each social media icon*/
   margin-bottom: 12px;
 }
 
@@ -1059,17 +1066,16 @@ test_index for latest covers from gutenberg1*/
   color: #4C8FA8;
 }
 
-.footer-social img {
+.footer-social img { /*keeps all icons same size*/
   width: 20px;
   height: 20px;
 }
 
-.footer-bottom {
+.footer-bottom { /* bottom section of footer, where ibiblio is*/
   border-top: 1px solid #ddd;
   padding: 20px 5vw;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   font-size: 0.85rem;
   color: #777;
 }
@@ -1113,7 +1119,7 @@ test_index for latest covers from gutenberg1*/
   height: auto;
 }
 
-.cover_image img {
+.cover_image img { /*cover image increased in size*/
   height: 200px;
   width: 140px;
   margin-left: auto;
@@ -1359,10 +1365,10 @@ Remove sticky header at this breakpoint.
   background-color: #fefefe;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /*centered to center search bar*/
   align-items: center;
   height: 80px;
-  flex: 1;
+  flex: 1; /*added so top header fills remaining space next to the logo. */
 }
 
 /* centered the search bar*/
@@ -3915,6 +3921,7 @@ Remove sticky header at this breakpoint.
   font-size: 18px;
 }
 
+/* .section-heading is new class for the "What do you want to read?" heading on the homepage.*/
 .section-heading {
   text-align: center;
   margin-top: 60px;
@@ -4071,7 +4078,7 @@ Remove sticky header at this breakpoint.
   }
 }
 
-/* ---------- Collections Grid (reading list pagina) ---------- */
+/* ---------- Collections Grid (reading list page) ---------- */
 .collections-grid {
   display: flex;
   flex-wrap: wrap;
