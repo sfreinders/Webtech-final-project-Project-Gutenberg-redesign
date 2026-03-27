@@ -5,6 +5,7 @@
    1. setActiveNavLink()  — highlights the current page's nav link
    2. initScrollToTop()   — scroll-to-top button in bottom-right corner
    3. initBookSliders()   — auto-scrolls all book carousels left to right
+   4. masonryLayout()     — Pinterest-style layout for bookshelves
    ========================================================================== */
 
 
@@ -131,7 +132,27 @@ function initBookSliders() {
     });
   });
 }
-// Masonry layout for bookshelves
+/* --------------------------------------------------------------------------
+   4. MASONRY LAYOUT
+   Positions all .book-list blocks in a Pinterest-style grid by always
+   placing each block in the shortest column. This prevents gaps between
+   blocks of different heights while preserving left-to-right alphabetical
+   order.
+   Works on ALL pages that contain a .bookshelves container.
+   WHY: CSS columns broke alphabetical order (fills top-to-bottom per
+   column). CSS grid left ugly gaps. This JS solution solves both problems.
+
+   SOURCES:
+   - Own implementation based on the masonry layout concept.
+   - offsetWidth / offsetHeight (reads element dimensions):
+     https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth
+   - Math.min() / Math.max() (finds shortest/tallest column):
+     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
+   - Array.fill() (initializes column height trackers):
+     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+   - position absolute (enables exact pixel placement):
+     https://developer.mozilla.org/en-US/docs/Web/CSS/position
+-------------------------------------------------------------------------- */
 function masonryLayout() {
   const grid = document.querySelector('.bookshelves');
   if (!grid) return;
@@ -169,5 +190,4 @@ document.addEventListener("DOMContentLoaded", function () {
   setActiveNavLink();
   initScrollToTop();
   initBookSliders();
-  initmasonryLayout();
 });
